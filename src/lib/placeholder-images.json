@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "badge-first-drill",
+      "imageUrl": "https://picsum.photos/seed/badge1/100/100",
+      "description": "First Drill Completed badge",
+      "imageHint": "award medal"
+    },
+    {
+      "id": "badge-perfect-score",
+      "imageUrl": "https://picsum.photos/seed/badge2/100/100",
+      "description": "Perfect Score badge",
+      "imageHint": "gold trophy"
+    },
+    {
+      "id": "badge-ten-drills",
+      "imageUrl": "https://picsum.photos/seed/badge3/100/100",
+      "description": "10 Drills Completed badge",
+      "imageHint": "star shield"
+    },
+    {
+      "id": "badge-high-scorer",
+      "imageUrl": "https://picsum.photos/seed/badge4/100/100",
+      "description": "High Scorer badge",
+      "imageHint": "upward arrow"
+    }
+  ]
 }
