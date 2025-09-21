@@ -23,11 +23,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { drillTypes } from "@/lib/data";
-import { provideHelpfulFeedback } from "@/ai/flows/provide-helpful-feedback";
 import useProgressData from "@/hooks/use-progress-data";
 import { useToast } from "@/hooks/use-toast";
 import { Bot, Sparkles } from "lucide-react";
 import { Skeleton } from "../ui/skeleton";
+import { getFeedback } from "@/lib/actions";
 
 const FormSchema = z.object({
   drillPosture: z.string({
@@ -37,11 +37,6 @@ const FormSchema = z.object({
     message: "Your question must be at least 10 characters.",
   }),
 });
-
-async function getFeedback(values: z.infer<typeof FormSchema>, poseAnalysis: string) {
-    'use server';
-    return await provideHelpfulFeedback({ ...values, poseAnalysis });
-}
 
 export function AiInstructorClient() {
   const [isLoading, setIsLoading] = useState(false);

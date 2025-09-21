@@ -1,6 +1,7 @@
 'use server';
 
 import { analyzeCadetPose, AnalyzeCadetPoseOutput } from '@/ai/flows/analyze-cadet-pose';
+import { provideHelpfulFeedback, ProvideHelpfulFeedbackInput, ProvideHelpfulFeedbackOutput } from '@/ai/flows/provide-helpful-feedback';
 import { provideSpokenInstructions } from '@/ai/flows/provide-spoken-instructions';
 
 export type AnalysisResult = AnalyzeCadetPoseOutput & { audioDataUri?: string };
@@ -17,4 +18,8 @@ export async function getAnalysis(imageData: string): Promise<AnalysisResult | n
     console.error(e);
     return null;
   }
+}
+
+export async function getFeedback(values: Omit<ProvideHelpfulFeedbackInput, 'poseAnalysis'>, poseAnalysis: string): Promise<ProvideHelpfulFeedbackOutput> {
+    return await provideHelpfulFeedback({ ...values, poseAnalysis });
 }
